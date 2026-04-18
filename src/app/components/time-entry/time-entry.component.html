@@ -1,0 +1,52 @@
+<mat-card class="card">
+  <h2>Saisie des heures</h2>
+
+  <form [formGroup]="form">
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Numéro de projet</mat-label>
+      <input matInput formControlName="projectNumber" maxlength="15">
+      <mat-hint>15 caractères</mat-hint>
+    </mat-form-field>
+
+    <div class="loader" *ngIf="loadingTasks">
+      <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+    </div>
+
+    <mat-form-field appearance="outline" class="full" *ngIf="tasks.length > 0">
+      <mat-label>Tâche</mat-label>
+      <mat-select formControlName="task">
+        <mat-option *ngFor="let t of tasks" [value]="t">
+          {{ t.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="loader" *ngIf="loadingHourTypes">
+      <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+    </div>
+
+    <mat-form-field appearance="outline" class="full" *ngIf="hourTypes.length > 0">
+      <mat-label>Type d'heure</mat-label>
+      <mat-select formControlName="hourType">
+        <mat-option *ngFor="let h of hourTypes" [value]="h">
+          {{ h.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Nombre d'heures</mat-label>
+      <input matInput type="number" formControlName="hours" min="1" max="24">
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid || submitting"
+      (click)="submit()">
+      Valider
+    </button>
+
+  </form>
+</mat-card>

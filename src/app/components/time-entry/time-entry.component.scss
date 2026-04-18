@@ -1,0 +1,18 @@
+.card {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.full {
+  width: 100%;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
