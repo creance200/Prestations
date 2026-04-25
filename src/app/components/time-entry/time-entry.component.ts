@@ -48,7 +48,7 @@ export class TimeEntryComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      projectNumber: ['', [Validators.required, Validators.minLength(15), Validators.maxLength(15)]],
+      projectNumber: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
       task: [null, Validators.required],
       hourType: [null, Validators.required],
       hours: [null, [Validators.required, Validators.min(1), Validators.max(24)]]
@@ -68,7 +68,14 @@ export class TimeEntryComponent implements OnInit {
     // FACTICE !!!!!!!!!!!!!!!!! TO DELETE when API OK !!!!!!!!!!!!!!!!!!!!
     this.hourTypes = [
       { id: 1, label: 'Normal' },
-      { id: 2, label: 'Supplémentaire' }
+      { id: 2, label: 'Supplémentaire' },
+      { id: 3, label: 'Samedi' },
+      { id: 3, label: 'Dimanche' },
+      { id: 3, label: 'Samedi supplémentaire' },
+      { id: 3, label: 'Dimanche supplémentaire' },
+      { id: 3, label: 'Shift' },
+      { id: 3, label: 'Attente' },
+      { id: 3, label: 'Absence' }
     ];
 
   }
