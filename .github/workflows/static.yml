@@ -31,12 +31,12 @@ jobs:
 
       - name: Build Angular
         run: |
-          npm run build -- --base-href "/<nom-du-repo>/"
+          npm run build -- --base-href "/Prestations/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/<nom-app>  # ← IMPORTANT
+          path: dist/Prestations
 
   deploy:
     needs: build
