@@ -29,9 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Angular CLI globally
+        run: npm install -g @angular/cli
+
       - name: Build Angular
-        run: |
-          npm run build -- --base-href "/Prestations/"
+        run: ng build --base-href "/Prestations/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
