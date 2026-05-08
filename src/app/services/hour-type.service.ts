@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { HourTypesApiResponse } from '../HourTypesApiResponse';
+import { HourTypesApiResponse } from '../model.HourTypesApiResponse' //'../model.HourTypesApiResponse';
 
 @Injectable({
   providedIn: 'root'

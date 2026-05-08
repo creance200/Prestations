@@ -1,0 +1,9 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+
+  <input type="text" formControlName="nom" placeholder="Nom" />
+  <input type="text" formControlName="prenom" placeholder="Prénom" />
+  <input type="text" formControlName="projectNumber" placeholder="N° Projet" />
+
+  <button type="submit">Sauvegarder</button>
+
+</form>
