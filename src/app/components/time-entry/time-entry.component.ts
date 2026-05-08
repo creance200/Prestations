@@ -65,34 +65,50 @@ export class TimeEntryComponent implements OnInit {
       }
     });
 
-    // FACTICE !!!!!!!!!!!!!!!!! TO DELETE when API OK !!!!!!!!!!!!!!!!!!!!
-    this.hourTypes = [
-      { id: 1, label: 'Normal' },
-      { id: 2, label: 'Supplémentaire' },
-      { id: 3, label: 'Samedi' },
-      { id: 3, label: 'Dimanche' },
-      { id: 3, label: 'Samedi supplémentaire' },
-      { id: 3, label: 'Dimanche supplémentaire' },
-      { id: 3, label: 'Shift' },
-      { id: 3, label: 'Attente' },
-      { id: 3, label: 'Absence' }
-    ];
+    // // FACTICE !!!!!!!!!!!!!!!!! TO DELETE when API OK !!!!!!!!!!!!!!!!!!!!
+    // this.hourTypes = [
+    //   { id: 1, label: 'Normal' },
+    //   { id: 2, label: 'Supplémentaire' },
+    //   { id: 3, label: 'Samedi' },
+    //   { id: 3, label: 'Dimanche' },
+    //   { id: 3, label: 'Samedi supplémentaire' },
+    //   { id: 3, label: 'Dimanche supplémentaire' },
+    //   { id: 3, label: 'Shift' },
+    //   { id: 3, label: 'Attente' },
+    //   { id: 3, label: 'Absence' }
+    // ];
 
   }
 
-  loadHourTypes() {
-    this.loadingHourTypes = true;
-    this.hourTypeService.getHourTypes().subscribe({
-      next: (types) => {
-        this.hourTypes = types;
-        this.loadingHourTypes = false;
-      },
-      error: () => {
-        this.loadingHourTypes = false;
-        alert('Erreur lors du chargement des types d\'heures');
-      }
-    });
-  }
+loadHourTypes() {
+  this.loadingHourTypes = true;
+
+  this.hourTypeService.getHourTypes().subscribe({
+    next: (response) => {
+      console.log('NEXT', response);
+      this.hourTypes = response.TypesHeure.map((type: string, index: number) => ({
+        id: index + 1,
+        label: type
+      }));
+
+      this.loadingHourTypes = false;
+    },
+    error: (err) => {
+      this.loadingHourTypes = false;
+      console.error('ERROR', err);
+      alert("Erreur lors du chargement des types d'heures");
+
+      // 🔴 Factice à supprimer quand l'API est stable
+      this.hourTypes = [
+        { id: 1, label: 'normal' },
+        { id: 2, label: 'supplementaire' },
+        { id: 3, label: 'samedi' },
+        { id: 4, label: 'dimanche' }
+      ];
+    }
+  });
+}
+
 
   fetchTasks(projectNumber: string) {
     // FACTICE !!!!!!!!!!!!!!!!! TO DELETE when API OK !!!!!!!!!!!!!!!!!!!!
