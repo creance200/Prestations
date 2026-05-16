@@ -64,19 +64,6 @@ export class TimeEntryComponent implements OnInit {
       }
     });
 
-    // // FACTICE !!!!!!!!!!!!!!!!! TO DELETE when API OK !!!!!!!!!!!!!!!!!!!!
-    // this.hourTypes = [
-    //   { id: 1, label: 'Normal' },
-    //   { id: 2, label: 'Supplémentaire' },
-    //   { id: 3, label: 'Samedi' },
-    //   { id: 3, label: 'Dimanche' },
-    //   { id: 3, label: 'Samedi supplémentaire' },
-    //   { id: 3, label: 'Dimanche supplémentaire' },
-    //   { id: 3, label: 'Shift' },
-    //   { id: 3, label: 'Attente' },
-    //   { id: 3, label: 'Absence' }
-    // ];
-
   }
 
 loadHourTypes() {
@@ -110,19 +97,6 @@ loadHourTypes() {
 
 
   fetchTasks(projectNumber: string) {
-    // FACTICE !!!!!!!!!!!!!!!!! TO DELETE when API OK !!!!!!!!!!!!!!!!!!!!
-    // this.loadingTasks = true;
-    //
-    // this.projectService.getTasks(projectNumber).subscribe({
-    //   next: (tasks) => {
-    //     this.tasks = tasks;
-    //     this.loadingTasks = false;
-    //   },
-    //   error: () => {
-    //     this.loadingTasks = false;
-    //     alert('Erreur lors du chargement des tâches');
-    //   }
-    // });
     this.tasks = [
       { id: 101, name: 'Analyse' },
       { id: 102, name: 'Développement' },
